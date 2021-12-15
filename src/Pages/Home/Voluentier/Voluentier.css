@@ -1,0 +1,38 @@
+.team-social-share {
+    border-top: 1px solid #EEE;
+    margin: 0px 0px;
+    padding: 15px;
+}
+.team-social-share a {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 2px;
+    text-align: center;
+    width: 40px;
+    color: #EF3D32;
+    border: 1px solid #EEE;
+    background: #FFFFFF;
+}
+.team-social-share a:hover {
+    color: #ad170e;
+}
+a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.bgTeam{
+    background: antiquewhite;
+}
+.teamImg {
+    vertical-align: middle;
+    width: 100%;
+}
+.temHed{
+    font-size: 1.7rem;
+}
+.temSub{
+    font-size: 1.2rem;
+    color:darkslategray;
+}
