@@ -14,12 +14,15 @@ const BloodRequestNotice = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/requestbloodlist")
+        fetch("http://localhost:5000/requestbloodlistNotice")
             .then((res) => res.json())
             .then((result) => {
                 setReqList(result);
             });
     }, []);
+
+    const size = 6;
+    const items = reqList.slice(0, size);
     return (
         <>
             <div
@@ -28,7 +31,7 @@ const BloodRequestNotice = () => {
             >
                 <h1 className="text-center">Blood Request</h1>
                 <Slider {...settings}>
-                    {reqList.map((review) => (
+                    {items.map((review) => (
                         <div className="text-center  p-5 d-flex justify-content-center align-items-center flex-column gap-4">
                             <div>
                                 <h5>{review.userName}</h5>
