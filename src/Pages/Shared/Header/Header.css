@@ -1,0 +1,16 @@
+.navHed .nav-link{
+    color: #fff !important;
+    font-weight:900;
+    font-size:1.2rem;
+
+}
+.navTitle{
+    color:orange !important;
+}
+
+.navHed .nav-link:hover{
+    color: orange !important;
+    font-weight:900;
+    font-size:1.2rem;
+
+}
