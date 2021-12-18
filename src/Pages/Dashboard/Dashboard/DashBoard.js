@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "./../../../hooks/useAuth";
-
+import "./DashBoard.css";
 const drawerWidth = 200;
 
 function Dashboard(props) {
@@ -20,6 +20,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { admin, logOut } = useAuth();
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -28,7 +29,7 @@ function Dashboard(props) {
         <div>
             <Toolbar style={{ backgroundColor: "aliceblue" }}>
                 <span className="fw-bolder" style={{ fontSize: "24px" }}>
-                    Winter CS
+                    BGCBB
                 </span>
             </Toolbar>
             <Divider />
@@ -38,9 +39,6 @@ function Dashboard(props) {
             <br />
             <Link to={""} id="link">
                 <Button color="inherit">Dashboard</Button>
-            </Link>
-            <Link to={`${url}/requestbloodlist`} id="link">
-                <Button color="inherit">Request Blood List</Button>
             </Link>
 
             <Divider />
@@ -71,6 +69,9 @@ function Dashboard(props) {
                     <Divider />
                     <Link to={`${url}/donnerRegList`} id="link">
                         <Button color="inherit">Donner Reg List</Button>
+                    </Link>
+                    <Link to={`${url}/requestbloodlist`} id="link">
+                        <Button color="inherit">Request Blood List</Button>
                     </Link>
                 </Box>
             )}
@@ -107,7 +108,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Winter Care Cream Shop Dashboard
+                        BGC Blood Bank
                     </Typography>
                 </Toolbar>
             </AppBar>

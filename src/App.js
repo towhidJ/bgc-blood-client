@@ -11,6 +11,7 @@ import DonnerRegList from "./Pages/Dashboard/DonnerRegList/DonnerRegList";
 import DonnerList from "./Pages/DonnerList/DonnerList";
 import DonnerRegistration from "./Pages/DonnerRegistration/DonnerRegistration";
 import Home from "./Pages/Home/Home/Home";
+import AdminRoute from "./Pages/Login/AdminRoute/AdminRoute";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
@@ -31,14 +32,29 @@ function App() {
                             }
                         />
 
-                        <Route path="dashboard" element={<Dashboard />}>
+                        <Route
+                            path="dashboard"
+                            element={
+                                <PrivateRoute>
+                                    <Dashboard />
+                                </PrivateRoute>
+                            }
+                        >
                             <Route
                                 path=""
-                                element={<DashboardHome></DashboardHome>}
+                                element={
+                                    <PrivateRoute>
+                                        <DashboardHome></DashboardHome>
+                                    </PrivateRoute>
+                                }
                             />
                             <Route
                                 path="requestbloodlist"
-                                element={<BloodRequestList />}
+                                element={
+                                    <AdminRoute>
+                                        <BloodRequestList />
+                                    </AdminRoute>
+                                }
                             />
                             <Route
                                 path="donnerRegList"

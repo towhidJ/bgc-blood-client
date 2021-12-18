@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from "../../Shared/Header/Header";
 import useAuth from "./../../../hooks/useAuth";
 import "./Login.css";
 
@@ -13,6 +14,7 @@ const Login = () => {
     };
     return (
         <>
+            <Header />
             <div class="container containerr">
                 <div class="body d-md-flex align-items-center justify-content-between">
                     <div class="box-1 mt-md-0 mt-5">

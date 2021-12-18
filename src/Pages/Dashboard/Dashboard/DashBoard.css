@@ -1,0 +1,13 @@
+#link{
+    text-decoration: none;
+    
+    color:mediumorchid
+}
+#link Button
+{
+    font-weight: 900;
+}
+
+#link:hover{
+    color:darkblue
+}
