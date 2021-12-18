@@ -51,7 +51,7 @@ const useFirebase = () => {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://evening-atoll-80410.herokuapp.com/users/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setAdmin(data.admin);
@@ -60,7 +60,9 @@ const useFirebase = () => {
     }, [user.email]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/donnerRegister/${user.email}`)
+        fetch(
+            `https://evening-atoll-80410.herokuapp.com/donnerRegister/${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 setRequestSend(data.request);
@@ -79,7 +81,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, phone?, method) => {
         const user = { email, displayName, phone };
-        fetch("http://localhost:5000/users", {
+        fetch("https://evening-atoll-80410.herokuapp.com/users", {
             method: method,
             headers: {
                 "content-type": "application/json",

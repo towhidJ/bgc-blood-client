@@ -10,7 +10,7 @@ const BloodRequestList = () => {
     const [st, setSt] = useState(0);
     useEffect(() => {
         setLoadOrder(true);
-        fetch("http://localhost:5000/requestbloodlist/")
+        fetch("https://evening-atoll-80410.herokuapp.com/requestbloodlist/")
             .then((res) => res.json())
             .then((data) => {
                 setOrders(data);
@@ -22,11 +22,14 @@ const BloodRequestList = () => {
 
     const changHandler = (data, id) => {
         console.log(data);
-        fetch(`http://localhost:5000/bloodRequeststatus/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ status: data }),
-        })
+        fetch(
+            `https://evening-atoll-80410.herokuapp.com/bloodRequeststatus/${id}`,
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status: data }),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 setSt(1);
@@ -35,10 +38,10 @@ const BloodRequestList = () => {
     };
 
     const deleteHandler = (id) => {
-        if (window.confirm("Are you sure you want to delete this order?")) {
+        if (window.confirm("Are you sure you want to delete this Request?")) {
             {
                 fetch(
-                    `https://radiant-castle-55741.herokuapp.com/orders/${id}`,
+                    `https://evening-atoll-80410.herokuapp.com/bloodRequest/${id}`,
                     {
                         method: "Delete",
                         headers: { "Content-Type": "application/json" },
@@ -48,7 +51,7 @@ const BloodRequestList = () => {
                     .then((data) => {
                         setSt(1);
 
-                        toast.error("Order Delete Success!");
+                        toast.error("Request Delete Success!");
                     });
             }
         }
@@ -139,14 +142,14 @@ const BloodRequestList = () => {
                                             )}
                                         </td>
                                         <td>
-                                            {/* <button
+                                            <button
                                                 onClick={() =>
                                                     deleteHandler(order._id)
                                                 }
                                                 className="btn btn-danger"
                                             >
                                                 Delete
-                                            </button> */}
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}

@@ -31,7 +31,7 @@ const DonnerRegistration = () => {
         data.status = "pending";
         console.log({ data });
 
-        fetch("http://localhost:5000/donnerRegister", {
+        fetch("https://evening-atoll-80410.herokuapp.com/donnerRegister", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const DonnerRegistration = () => {
     };
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/donnerRegister/${user.email}`)
+    //     fetch(`https://evening-atoll-80410.herokuapp.com/donnerRegister/${user.email}`)
     //         .then((res) => res.json())
     //         .then((data) => {
     //             setRequestSend(data.request);

@@ -26,7 +26,7 @@ const RequestBlood = () => {
         data.status = "pending";
         console.log({ data });
 
-        fetch("http://localhost:5000/requestBlood", {
+        fetch("https://evening-atoll-80410.herokuapp.com/requestBlood", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

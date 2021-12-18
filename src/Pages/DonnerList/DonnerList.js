@@ -4,23 +4,44 @@ import Header from "../Shared/Header/Header";
 
 const DonnerList = () => {
     const [donnerList, setDonnerList] = useState([]);
+    const [displayDonnerList, setDisplayDonnerList] = useState([]);
     const [loadorder, setLoadOrder] = useState(true);
     let aa = 0;
     useEffect(() => {
         setLoadOrder(true);
-        fetch("http://localhost:5000/donnerList/")
+        fetch("https://evening-atoll-80410.herokuapp.com/donnerList/")
             .then((res) => res.json())
             .then((data) => {
                 setDonnerList(data);
+                setDisplayDonnerList(data);
                 setLoadOrder(false);
             });
     }, []);
+
+    const handleSearch = (event) => {
+        const searchText = event.target.value;
+
+        const matchedBloods = donnerList.filter((order) =>
+            order.bloodGroup.toLowerCase().includes(searchText.toLowerCase())
+        );
+
+        setDisplayDonnerList(matchedBloods);
+    };
     return (
         <>
             <Header />
+
             <div className="mx-3">
                 <div className="text-center">
                     <h1>Donner List</h1>
+                </div>
+                <div className="search-container text-center my-3">
+                    <input
+                        type="text"
+                        className="form-control mx-auto w-50"
+                        onChange={handleSearch}
+                        placeholder="Search BloodGroup"
+                    />
                 </div>
                 <Table responsive striped bordered hover variant="light">
                     <thead>
@@ -39,7 +60,7 @@ const DonnerList = () => {
                         </div>
                     ) : (
                         <tbody>
-                            {donnerList.map((donner) => (
+                            {displayDonnerList.map((donner) => (
                                 <tr key={donner._id}>
                                     <td>{++aa}</td>
                                     <td>{donner.donnerName}</td>

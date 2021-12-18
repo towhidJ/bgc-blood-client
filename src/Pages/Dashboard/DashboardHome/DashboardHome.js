@@ -10,7 +10,7 @@ const DashboardHome = () => {
     const { admin } = useAuth();
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:5000/dashboard/")
+        fetch("https://evening-atoll-80410.herokuapp.com/dashboard/")
             .then((res) => res.json())
             .then((result) => {
                 setDashboard(result);

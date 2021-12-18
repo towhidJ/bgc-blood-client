@@ -14,7 +14,9 @@ const BloodRequestNotice = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/requestbloodlistNotice")
+        fetch(
+            "https://evening-atoll-80410.herokuapp.com/requestbloodlistNotice"
+        )
             .then((res) => res.json())
             .then((result) => {
                 setReqList(result);

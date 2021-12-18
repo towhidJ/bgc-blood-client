@@ -10,7 +10,7 @@ const DonnerRegList = () => {
     const [st, setSt] = useState(0);
     useEffect(() => {
         setLoadOrder(true);
-        fetch("http://localhost:5000/requestDonnerReglist/")
+        fetch("https://evening-atoll-80410.herokuapp.com/requestDonnerReglist/")
             .then((res) => res.json())
             .then((data) => {
                 setDonnerRegList(data);
@@ -22,11 +22,14 @@ const DonnerRegList = () => {
 
     const changHandler = (data, id) => {
         console.log(data);
-        fetch(`http://localhost:5000/bloodDonnerRegStatus/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ status: data }),
-        })
+        fetch(
+            `https://evening-atoll-80410.herokuapp.com/bloodDonnerRegStatus/${id}`,
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status: data }),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 setSt(1);
@@ -37,10 +40,13 @@ const DonnerRegList = () => {
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
             {
-                fetch(`http://localhost:5000/bloodDonnerRegStatus/${id}`, {
-                    method: "Delete",
-                    headers: { "Content-Type": "application/json" },
-                })
+                fetch(
+                    `https://evening-atoll-80410.herokuapp.com/donner/${id}`,
+                    {
+                        method: "Delete",
+                        headers: { "Content-Type": "application/json" },
+                    }
+                )
                     .then((res) => res.json())
                     .then((data) => {
                         setSt(1);
